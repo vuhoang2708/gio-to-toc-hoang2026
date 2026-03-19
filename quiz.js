@@ -109,30 +109,9 @@ let currentStep = 0;
 let score = 0;
 let answered = false;
 
-// Tạo ID duy nhất cho mỗi phiên làm bài để liên kết bảng Tổng hợp & Chi tiết
-const sessionId = 'dh-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
-
-// --- TRACKING LOGIC ---
-async function logToSheet(event, detail, extra = {}) {
-    if (!SHEET_WEBAPP_URL) {
-        console.log('Tracking off (No URL):', event, detail, extra);
-        return;
-    }
-    try {
-        await fetch(SHEET_WEBAPP_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                sessionId: sessionId,
-                event: event,
-                detail: detail,
-                ...extra
-            })
-        });
-    } catch (e) {
-        console.error('Tracking Error:', e);
-    }
+// --- TRACKING (Dùng chung bộ sessionId từ tracking.js) ---
+if (typeof logToSheet === 'undefined') {
+    window.logToSheet = () => { console.log('Hệ thống tracking chưa được tải'); };
 }
 
 function shuffleArray(array) {
