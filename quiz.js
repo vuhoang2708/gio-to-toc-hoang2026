@@ -1,6 +1,5 @@
 // --- CONFIGURATION ---
-// Dán URL Web App từ Google Apps Script của bạn vào đây:
-const SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbx0IpPYSMMjJ9onPXL5xaL_VBXf5eYwV_B0xv6zcY_bgeVRWdNZD05VrRFui7wP5wrL/exec";
+// Quiz sử dụng chung logToSheet và SHEET_WEBAPP_URL từ tracking.js lo liệu.
 
 const quizData = [
     {
