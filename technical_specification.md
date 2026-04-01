@@ -61,6 +61,39 @@ Tất cả các tệp tin, dữ liệu và hội thoại của dự án Deliveri
 ---
 *📍 Tài liệu này sẽ được bổ sung ngay khi có bất kỳ thay đổi kỹ thuật nào mới.*
 
-## 🌳 Kiến trúc Triển khai (Branch Strategy)
-- **Branch `main`:** Lưu trữ phiên bản đầy đủ chứa "Studio Artifacts", được sử dụng cho repo hiển thị các mục đích Demo thuộc về cá nhân.
-- **Branch `public-artifacts`:** Phiên bản Sạch (Clean version), sử dụng tính năng "Thư viện kiến thức" (LMS Login). Được thiết lập để push lên `main` của repo đại diện chính thức (Official Repo - `culturecodefeedforward`).
+## 🌳 Kiến trúc Triển khai (Multi-Repo Strategy)
+Dự án được duy trì song song trên hai Repository độc lập để đảm bảo việc phân tách nội dung rõ ràng:
+
+1.  **Repo Official (`culturecodefeedforward/DeliveringHappiness`):**
+    *   **Mục tiêu:** Bản công khai (Public) dành cho cộng đồng.
+    *   **Nội dung:** Bản **SẠCH (Clean)**, có tích hợp **Thư viện kiến thức (LMS Login)**.
+    *   **Cấu trúc:** Nhánh `main` luôn là bản Clean.
+
+2.  **Repo Personal (`vuhoang2708/culture_code_VN.DH`):**
+    *   **Mục tiêu:** Bản trình diễn (Demo) phục vụ thuyết trình và đào tạo.
+    *   **Nội dung:** Bản **DEMO (Artifacts)**, hiển thị toàn bộ Studio Artifacts (Audio, Visual, Quiz).
+    *   **Cấu trúc:** Nhánh `main` luôn là bản đầy đủ Artifacts.
+
+---
+
+## 🚦 Quy trình Cập nhật & Kiểm soát (Update Protocol)
+Để tránh nhầm lẫn nội dung giữa hai môi trường, mọi lập trình viên/AI phải tuân thủ nghiêm ngặt:
+
+### 1. Phân loại Cập nhật (Change Classification)
+Trước khi code, phải xác định tính năng thuộc nhóm nào:
+*   **Nhóm Chung (Core):** Logic Quiz, CSS layout, Tracking. (Cần update cả 2 Repo).
+*   **Nhóm Riêng (Content):** Thư viện kiến thức (Official) hoặc Studio Artifacts (Personal). (Chỉ update Repo đích).
+
+### 2. Thao tác GitHub (Git Protocol)
+*   **KHÔNG** sử dụng lệnh push đồng loạt lên tất cả các remote.
+*   **PHẢI** chỉ định chính xác remote:
+    *   `git push origin main` (Chỉ update bản Chính thức).
+    *   `git push personal main` (Chỉ update bản Demo).
+
+### 3. Kiểm soát Hiển thị (Visual Verification)
+Sau khi push, bắt buộc dùng trình duyệt kiểm tra:
+*   Nếu là **Official**: Tuyệt đối không được thấy các khối có tiêu đề "Studio Artifacts".
+*   Nếu là **Personal**: Phải thấy đầy đủ các khối Audio/Video/Quiz.
+
+---
+*📍 Tài liệu này được cập nhật ngày 29/03/2026 sau khi khôi phục hệ thống.*
