@@ -40,6 +40,7 @@ Hãy thể hiện sự quan tâm của bạn tại đây:
 
 **Hãy cùng chúng tôi lên kế hoạch "Trao gửi Hạnh phúc" đến đúng nơi cần nhất!** 🙏
 ---
+*   **Trạng thái:** ✅ Đã cập nhật trên Website (Bản Sạch & Bản Demo - 02/04/2026).
 
 ### 2. Recap sự kiện DH Masterclass 7
 *   **Ngữ cảnh (Context):** Ngay sau khi chương trình kết thúc vào cuối tuần.
