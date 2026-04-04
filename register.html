@@ -221,86 +221,24 @@
         </div>
 
         <form id="crmForm">
-            <div class="form-grid">
-                <!-- Row 1 -->
+            <div class="form-grid" style="grid-template-columns: 1fr;">
                 <div class="input-group">
                     <label>Họ và tên *</label>
                     <input type="text" name="fullName" required placeholder="Nhập họ tên...">
                 </div>
                 <div class="input-group">
-                    <label>Email liên hệ *</label>
-                    <input type="email" name="email" required placeholder="Nhập business email...">
-                </div>
-
-                <!-- Row 2 -->
-                <div class="input-group">
                     <label>Số điện thoại (Zalo) *</label>
-                    <input type="tel" name="phone" required placeholder="Nhập SĐT của bạn...">
+                    <input type="tel" name="phone" required placeholder="Nhập số điện thoại...">
                 </div>
                 <div class="input-group">
-                    <label>Tên công ty *</label>
-                    <input type="text" name="company" required placeholder="Nơi bạn đang công tác...">
-                </div>
-
-                <!-- Row 3 -->
-                <div class="input-group">
-                    <label>Chức danh *</label>
-                    <input type="text" name="jobTitle" required placeholder="Vị trí hiện tại...">
-                </div>
-                <div class="input-group">
-                    <label>Quy mô công ty *</label>
-                    <select name="companySize" required>
-                        <option value="" disabled selected>Chọn quy mô...</option>
-                        <option value="<50">Dưới 50 nhân sự</option>
-                        <option value="50-200">Từ 50 - 200 nhân sự</option>
-                        <option value="200-1000">Từ 200 - 1000 nhân sự</option>
-                        <option value=">1000">Trên 1000 nhân sự</option>
-                    </select>
-                </div>
-
-                <!-- Multiple Choice -->
-                <div class="input-group full-width">
-                    <label>Nguồn biết đến chương trình *</label>
-                    <div class="radio-group">
-                        <div class="radio-item"><input type="radio" name="referral" value="Linkedin-CC" required><label>Culture Code LinkedIn</label></div>
-                        <div class="radio-item"><input type="radio" name="referral" value="Zalo-CC" required><label>Zalo Cộng đồng CC</label></div>
-                        <div class="radio-item"><input type="radio" name="referral" value="Zalo-DH" required><label>Zalo Cộng đồng DH</label></div>
-                        <div class="radio-item"><input type="radio" name="referral" value="Referral" required><label>Bạn bè/Người quen</label></div>
-                    </div>
-                </div>
-
-                <div class="input-group full-width">
-                    <label>Bạn đã tìm hiểu gì về "Delivering Happiness" chưa? *</label>
-                    <div class="radio-group">
-                        <div class="radio-item"><input type="radio" name="knowledge" value="Never" required><label>Chưa từng nghe</label></div>
-                        <div class="radio-item"><input type="radio" name="knowledge" value="Known" required><label>Biết sách nhưng chưa đọc</label></div>
-                        <div class="radio-item"><input type="radio" name="knowledge" value="Read" required><label>Đã đọc nhưng chưa hiểu rõ</label></div>
-                    </div>
-                </div>
-
-                <div class="input-group full-width">
-                    <label>Điều bạn mong đợi nhất sau chương trình? *</label>
-                    <textarea name="expectations" rows="3" required placeholder="Nhập 03 điều mong đợi nhất..."></textarea>
-                </div>
-
-                <div class="input-group">
-                    <label>Địa điểm mong muốn? *</label>
-                    <select name="preferredLocation" required>
-                        <option value="Hanoi">Hà Nội</option>
-                        <option value="HCM">Hồ Chí Minh</option>
-                        <option value="Other">Khác (Cty tài trợ)</option>
-                    </select>
-                </div>
-                
-                <div class="input-group">
-                    <label>Chương trình khác đã tham gia?</label>
-                    <input type="text" name="pastPrograms" placeholder="Kể tên các chương trình...">
+                    <label>Email liên hệ *</label>
+                    <input type="email" name="email" required placeholder="Nhập địa chỉ email...">
                 </div>
             </div>
 
             <button type="submit" class="btn-submit" id="submitBtn">
                 <span class="loading-spinner"></span>
-                <span class="btn-text">Gửi đăng ký</span>
+                <span class="btn-text">Gửi đăng ký ngay</span>
             </button>
 
             <a href="index.html" class="back-home" style="text-align: center;">← Quay về trang chủ</a>
