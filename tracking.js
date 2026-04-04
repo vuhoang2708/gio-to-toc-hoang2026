@@ -1,13 +1,14 @@
 // tracking.js - Hệ thống Analytics hợp nhất cho Dự án DH4HN
-const SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbxxbba8bvb7H2Em179HgJUv0Tj8dnxWIuGynmVqjDcPVwADrTBXxx7UwE5AKroIQR5i/exec";
+const SHEET_WEBAPP_URL = window.CUSTOM_WEBAPP_URL || "https://script.google.com/macros/s/AKfycbxxbba8bvb7H2Em179HgJUv0Tj8dnxWIuGynmVqjDcPVwADrTBXxx7UwE5AKroIQR5i/exec";
 const sessionId = 'dh-' + Date.now() + '-' + Math.random().toString(36).substr(2, 5);
 
 window.sessionId = sessionId; // Export cho quiz.js dùng chung
 
 async function logToSheet(event, detail, extra = {}) {
-    if (!SHEET_WEBAPP_URL) return;
+    const targetUrl = window.CUSTOM_WEBAPP_URL || SHEET_WEBAPP_URL;
+    if (!targetUrl) return;
     try {
-        await fetch(SHEET_WEBAPP_URL, {
+        await fetch(targetUrl, {
             method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' },

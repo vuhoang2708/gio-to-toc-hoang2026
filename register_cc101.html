@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký CultureCode101 MasterClass - HCM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark: #0f172a;
+            --mid: #334155;
+            --light: #f8fafc;
+            --accent: #10b981; /* Emerald for CC101 */
+            --warm-yellow: #f59e0b;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at top left, #064e3b, #0f172a);
+            color: var(--light);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .form-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            padding: 3rem;
+            border-radius: 32px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff, var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group.full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1.25rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 2rem;
+            box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.5);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px -10px rgba(16, 185, 129, 0.6);
+            filter: brightness(1.1);
+        }
+
+        .loading-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.1);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #successMessage {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .back-home {
+            display: block;
+            margin-top: 2rem;
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .back-home:hover {
+            color: white;
+        }
+
+        @media (max-width: 640px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .input-group.full-width {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-card" id="formWrapper">
+        <div class="header">
+            <h1>CultureCode101 MasterClass</h1>
+            <p class="subtitle">Đăng ký tham dự chương trình tại TP.HCM | 29.01.2026</p>
+        </div>
+
+        <form id="crmForm">
+            <div class="form-grid">
+                <div class="input-group full-width">
+                    <label>Họ và tên *</label>
+                    <input type="text" name="fullName" required placeholder="Nhập họ tên...">
+                </div>
+                <div class="input-group">
+                    <label>Số điện thoại (Zalo) *</label>
+                    <input type="tel" name="phone" required placeholder="Nhập số điện thoại...">
+                </div>
+                <div class="input-group">
+                    <label>Email liên hệ *</label>
+                    <input type="email" name="email" required placeholder="Nhập địa chỉ email...">
+                </div>
+                <div class="input-group full-width">
+                    <label>Tên công ty / Tổ chức *</label>
+                    <input type="text" name="company" required placeholder="Nhập tên đơn vị công tác...">
+                </div>
+                <input type="hidden" name="event_id" value="CC101_HCM_2901">
+            </div>
+
+            <button type="submit" class="btn-submit" id="submitBtn">
+                <span class="loading-spinner"></span>
+                <span class="btn-text">Gửi đăng ký CC101</span>
+            </button>
+
+            <a href="index.html" class="back-home" style="text-align: center;">← Quay về trang chủ</a>
+        </form>
+
+        <div id="successMessage">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
+            <h2 style="margin-bottom: 1rem; color: var(--accent);">Đăng ký thành công!</h2>
+            <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">Team CC101 đã nhận được thông tin. Chúng tôi sẽ liên hệ xác nhận trong vòng 24h.</p>
+            <a href="index.html" class="btn-submit" style="display: block; text-decoration: none; text-align: center; margin-top: 2rem;"> Quay về trang chủ</a>
+        </div>
+    </div>
+
+    <script>
+        // Cấu hình linh hoạt cho Webhook URL
+        // Nếu user muốn lưu vào Sheet khác, thay URL bên dưới:
+        window.CUSTOM_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbxxbba8bvb7H2Em179HgJUv0Tj8dnxWIuGynmVqjDcPVwADrTBXxx7UwE5AKroIQR5i/exec";
+    </script>
+    <script src="tracking.js?v=2.4"></script>
+    <script>
+        document.getElementById('crmForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const spinner = btn.querySelector('.loading-spinner');
+            const text = btn.querySelector('.btn-text');
+            
+            btn.disabled = true;
+            spinner.style.display = 'inline-block';
+            text.innerText = 'Đang xử lý...';
+
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                if (window.logToSheet) {
+                    await window.logToSheet('REGISTER_EVENT', data.fullName, {
+                        ...data,
+                        type: 'EVENT_LEAD',
+                        source: 'LinkedIn_CC101'
+                    });
+                }
+                
+                document.getElementById('crmForm').style.display = 'none';
+                document.querySelector('.header').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+            } catch (err) {
+                console.error(err);
+                alert('Có lỗi xảy ra, vui lòng thử lại sau.');
+                btn.disabled = false;
+                spinner.style.display = 'none';
+                text.innerText = 'Gửi đăng ký CC101';
+            }
+        });
+    </script>
+</body>
+</html>
