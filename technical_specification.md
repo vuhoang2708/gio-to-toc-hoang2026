@@ -36,6 +36,22 @@ Dưới đây là Chiến lược Hai Tệp (Two-File System Strategy) và ánh 
 | :--- | :--- | :--- | :--- |
 | **Bản SẠCH (Official)**<br>Dành cho cộng đồng, public 100% | `culturecodefeedforward/DeliveringHappiness` | `index_OFFICIAL.html` | Có chứa mục Thư viện Kiến thức (LMS Login). **Không** chứa các bản demo (Artifacts). |
 | **Bản DEMO (Personal)**<br>Training, Sales, Testing Artifacts | `vuhoang2708/culture_code_VN.DH` | `index.html` | Hình ảnh Demo của Studio Artifacts (Audio, Visual, Flashcards) cho khách hàng/nội bộ. |
+| **Cổng Đăng ký (Register)**<br>Thu thập Lead trực tiếp | Toàn bộ 2 Repositories | `register.html` | Form đăng ký 3 trường (Tên, SĐT, Email). Gửi dữ liệu về CRM Sheet qua GAS Webhook. |
+
+---
+
+## 📋 Cấu trúc Cổng Đăng ký (Native Registration Form)
+
+Hệ thống sử dụng file `register.html` để thu thập thông tin khách hàng trực tiếp mà không cần dùng Google Form nhúng (iFrame), giúp tăng tốc độ tải trang và tính thẩm mỹ.
+
+*   **Các trường dữ liệu (Fields):**
+    *   `fullName`: Họ và tên khách hàng (Bắt buộc).
+    *   `phone`: Số điện thoại/Zalo liên hệ (Bắt buộc).
+    *   `email`: Địa chỉ email nhận tài liệu (Bắt buộc).
+*   **Sự kiện Tracking (`REGISTER_SUBMIT`):**
+    *   Khi nhấn gửi, hệ thống gọi hàm `logToSheet` trong `tracking.js` với nhãn `type: 'CRM_LEAD'`.
+    *   Dữ liệu bao gồm `sessionId` duy nhất để liên kết với hành vi cuộn trang trước đó.
+*   **Công nghệ:** CSS Glassmorphism, JS Fetch API (No-cors mode).
 
 ---
 
@@ -90,4 +106,5 @@ Tất cả các tệp tin, dữ liệu và hội thoại của dự án phải n
 | 22/03 | Kiến trúc Repo | Chuyển đổi Repo sang `DeliveringHappiness` |
 | 27/03 | System Restoration | Tạo chiến lược Hai Tệp - Hai Kho (Demo vs Official). |
 | 02/04 | Sync Verification | Đồng bộ hóa toàn diện qua quy trình Patch-and-Revert. |
-| 03/04 | Handover Update | Cập nhật cấu trúc tài liệu, hệ thống NotebookLM MCP. |
+| 03/04 | Native Register Portal | Triển khai form đăng ký 3 trường (`register.html`) và tích hợp GAS CRM. |
+| 04/04 | Final Documentation | Cập nhật toàn bộ tài liệu kỹ thuật, kiến trúc file và luồng dữ liệu đăng ký. |

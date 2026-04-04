@@ -16,9 +16,9 @@ Tuy nhiên, cấu trúc dự án cực kỳ tinh gọn, giúp bạn dễ dàng c
 
 ### 2. Bộ ba Công cụ Kỹ thuật Lõi
 1.  **Hệ thống Form & Tracking qua Google Apps Script (GAS)**
-    *   **Mục đích:** Hiện tại đây là "bộ não" theo dõi hành vi (Session, Clicks) và kết quả Quiz. Tuy nhiên, nó được thiết kế để dễ dàng nâng cấp thành hệ thống thu thập danh sách khách hàng chuyên nghiệp (Họ tên, Email, SĐT) thay thế cho các Google Form bên ngoài.
-    *   **Cơ chế:** Thay vì cần Backend (NodeJS/PHP) phức tạp và Database tốn phí, mọi thông tin submit đều đẩy qua một Webhook của Google Apps Script và lưu thẳng vào **Google Sheets**. Điều này cực kỳ phù hợp cho các dự án Landing Page bán hàng hoặc Portal mini cần triển khai nhanh mà không tốn chi phí vận hành server.
-    *   **Tracking nâng cao:** Tích hợp JS `IntersectionObserver` để theo dõi hành vi cuộn trang, giúp bạn biết khách đã đọc đến đoạn nào trước khi thoát hoặc đăng ký.
+    *   **Mục đích:** Đã hoàn thiện hệ thống thu thập danh sách khách hàng chuyên nghiệp (Họ tên, Email, SĐT) thông qua file `register.html`, thay thế hoàn toàn cho Google Form bên ngoài.
+    *   **Cơ chế:** Thay vì cần Backend tốn phí, thông tin submitted từ `register.html` được đẩy qua Webhook của Google Apps Script và lưu chính xác vào **CRM Google Sheets**. Điều này đảm bảo tính thẩm mỹ cao (Glassmorphism) và tốc độ tải trang tối ưu.
+    *   **Tracking nâng cao:** Tích hợp sẵn `tracking.js` để đo lường tỷ lệ chuyển đổi từ các trang đích (Landing Pages) vào trang đăng ký.
 2.  **Kiến trúc Đa kho lưu trữ (Multi-Repo & Two-File Strategy)**
     *   Dự án quản lý chung trong 1 thư mục code nhưng đẩy ra 2 Link web khác nhau.
     *   `index_OFFICIAL.html` là file Sạch (không quảng cáo/demo), được đẩy lên Repo của Công ty.
