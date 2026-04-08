@@ -159,13 +159,26 @@
             <input type="password" placeholder="••••••••">
         </div>
 
-        <button class="btn-login">Đăng nhập</button>
+        <button class="btn-login" id="loginBtn">Đăng nhập</button>
 
         <div class="status-badge">🏗️ Đang xây dựng</div>
 
         <a href="index.html" class="back-link">← Quay lại trang chủ</a>
     </div>
 
+    <script>
+        document.getElementById('loginBtn').addEventListener('click', function () {
+            const user = document.querySelector('input[type="text"]').value;
+            const pass = document.querySelector('input[type="password"]').value;
+
+            if (user === 'admin' && pass === '12345') {
+                alert('Đăng nhập thành công!');
+                window.location.href = 'lms_dashboard.html';
+            } else {
+                alert('Tên đăng nhập hoặc mật khẩu không đúng!');
+            }
+        });
+    </script>
 </body>
 
 </html>

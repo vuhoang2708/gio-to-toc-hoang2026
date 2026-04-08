@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LMS Dashboard — Culture Code Community</title>
+    <meta name="description" content="Hệ thống học tập nội bộ Culture Code - Thư viện Artifacts DH7" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        .audio-tracks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .video-container {
+            margin-top: 2rem;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #000;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .report-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warm-yellow);
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .report-badge:hover {
+            background: var(--warm-yellow);
+            color: var(--dark);
+        }
+
+        .lms-header {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .user-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--white);
+        }
+
+        .btn-logout {
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+    </style>
+</head>
+
+<body style="background: var(--dark); color: var(--white);">
+
+    <!-- LMS TOP BAR -->
+    <div class="lms-header">
+        <div class="container user-info">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="data/logo.jpg" alt="Logo" style="width: 40px; border-radius: 8px;">
+                <span style="font-weight: 700;">LMS PORTAL</span>
+            </div>
+            <div>
+                <span style="font-size: 0.9rem; margin-right: 15px;">Chào mừng, <strong>Admin</strong></span>
+                <a href="login.html" class="btn-logout">Đăng xuất</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- STUDIO ARTIFACTS / NEW CONTENT HUB -->
+    <section class="section artifacts" style="padding-top: 0;">
+        <div class="container">
+            <h2 class="section-title">📼 DH7 Content Artifacts Library</h2>
+            <p class="section-sub">Kho nội dung AI-generated toàn diện dành riêng cho học viên lớp DH7</p>
+
+            <div class="artifacts-grid">
+
+                <!-- CALL TO ACTION: ASKING AI -->
+                <div class="artifact-card full-width"
+                    style="background: linear-gradient(135deg, rgba(245,158,11,0.1), rgba(0,0,0,0.5)); border: 2px solid var(--warm-yellow);">
+                    <div
+                        style="display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+                        <div>
+                            <h3 style="font-size: 1.5rem; color: var(--warm-yellow);">💬 Chat directly with AI Context
+                            </h3>
+                            <p style="margin-bottom: 0;">Truy cập NotebookLM để hỏi đáp trực tiếp về toàn bộ dữ liệu
+                                khóa học DH7.</p>
+                        </div>
+                        <a href="https://notebooklm.google.com/notebook/e9f7d3f6-036a-4c40-8580-66d688c7642f"
+                            target="_blank" class="btn-primary"
+                            style="background: var(--warm-yellow); color: var(--dark);">Hỏi AI Ngay</a>
+                    </div>
+                </div>
+
+                <!-- VIDEO SECTION -->
+                <div class="artifact-card full-width">
+                    <div class="artifact-icon">🎬</div>
+                    <h3>The Explainer (Video Overview)</h3>
+                    <p>Tóm tắt trực quan về hệ điều hành hạnh phúc</p>
+                    <div class="video-container">
+                        <video controls style="width: 100%; display: block;">
+                            <source src="data/artifacts/the_explainer.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+
+                <!-- AUDIO LIBRARY (EXPANDED) -->
+                <div class="artifact-card full-width">
+                    <div class="artifact-icon">🎙️</div>
+                    <h3>DH7 Extended Audio Library (12+ Tracks)</h3>
+                    <p>Hệ thống Podcast chuyên sâu về văn hóa và thói quen hạnh phúc</p>
+                    <div class="audio-tracks-grid">
+                        <div class="audio-track">
+                            <span class="track-title">⭐ Ba cấp độ hạnh phúc thực sự</span>
+                            <audio controls>
+                                <source src="data/artifacts/audio_3_cap_do.mp3">
+                            </audio>
+                        </div>
+                        <div class="audio-track">
+                            <span class="track-title">Người vị nhân dễ thành công nhất</span>
+                            <audio controls>
+                                <source src="data/artifacts/nguoi_vi_nhan.mp3">
+                            </audio>
+                        </div>
+                        <div class="audio-track">
+                            <span class="track-title">Văn hóa là thỏa thuận hành vi</span>
+                            <audio controls>
+                                <source src="data/artifacts/thoa_thuan_van_hoa.mp3">
+                            </audio>
+                        </div>
+                        <div class="audio-track">
+                            <span class="track-title">Rèn kỹ năng lạc quan (ABCDE)</span>
+                            <audio controls>
+                                <source src="data/artifacts/lac_quan_abcde.mp3">
+                            </audio>
+                        </div>
+                        <div class="audio-track">
+                            <span class="track-title">Nghịch lý người tử tế và AI</span>
+                            <audio controls>
+                                <source src="data/artifacts/nghich_ly_tu_te.mp3">
+                            </audio>
+                        </div>
+                        <div class="audio-track">
+                            <span class="track-title">Hack não để làm việc Phiêu</span>
+                            <audio controls>
+                                <source src="data/artifacts/lam_viec_phieu.mp3">
+                            </audio>
+                        </div>
+                        <div class="audio-track">
+                            <span class="track-title">Thói quen biết ơn tăng hiệu suất</span>
+                            <audio controls>
+                                <source src="data/artifacts/biet_on_hieu_suat.mp3">
+                            </audio>
+                        </div>
+                        <div class="audio-track">
+                            <span class="track-title">Hạnh phúc trong 70.000 giờ làm việc</span>
+                            <audio controls>
+                                <source src="data/artifacts/70000_gio_lam_viec.mp3">
+                            </audio>
+                        </div>
+                        <div class="audio-track">
+                            <span class="track-title">Ba cấp độ hạnh phúc bền vững</span>
+                            <audio controls>
+                                <source src="data/artifacts/ba_cap_do_ben_vung.mp3">
+                            </audio>
+                        </div>
+                        <div class="audio-track">
+                            <span class="track-title">Khoa học hạnh phúc từ hành vi</span>
+                            <audio controls>
+                                <source src="data/artifacts/khoa_hoc_hanh_phuc.mp3">
+                            </audio>
+                        </div>
+                        <div class="audio-track">
+                            <span class="track-title">Hạnh phúc không chỉ là khẩu hiệu</span>
+                            <audio controls>
+                                <source src="data/artifacts/hanh_phuc_khong_khau_hieu.mp3">
+                            </audio>
+                        </div>
+                        <div class="audio-track">
+                            <span class="track-title">Ba tầng hạnh phúc của Zappos</span>
+                            <audio controls>
+                                <source src="data/artifacts/ba_tang_zappos.mp3">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VISUALS -->
+                <div class="artifact-card">
+                    <div class="artifact-icon">🖼️</div>
+                    <h3>Lộ trình (Visual)</h3>
+                    <p>Bí quyết văn hóa hạnh phúc</p>
+                    <a href="data/artifacts/infographic_bi_quyet.png" target="_blank"
+                        class="artifact-status completed">Mở Infographic</a>
+                </div>
+
+                <div class="artifact-card">
+                    <div class="artifact-icon">📚</div>
+                    <h3>Culture Blueprint</h3>
+                    <p>Slide Deck & Presentation</p>
+                    <a href="data/artifacts/culture_blueprint.pdf" target="_blank" class="artifact-status completed">Tải
+                        Slide (PDF)</a>
+                </div>
+
+                <div class="artifact-card">
+                    <div class="artifact-icon">🎴</div>
+                    <h3>Hạnh phúc Flashcard</h3>
+                    <p>Ôn tập nhanh (9 thẻ)</p>
+                    <a href="data/artifacts/flashcards.html" target="_blank" class="artifact-status completed">Thực hành
+                        ngay</a>
+                </div>
+
+                <div class="artifact-card">
+                    <div class="artifact-icon">📄</div>
+                    <h3>Báo cáo chiến lược</h3>
+                    <p>Phân tích chuyên sâu từ AI</p>
+                    <a href="data/artifacts/report_dong_chay.md" target="_blank" class="report-badge">Văn hóa Dòng
+                        Chảy</a>
+                    <a href="data/artifacts/report_quan_tri_con_nguoi.md" target="_blank" class="report-badge">Quản trị
+                        Con Người</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 Culture Code Community · LMS Internal Dashboard</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="tracking.js?v=2.3"></script>
+</body>
+
+</html>
