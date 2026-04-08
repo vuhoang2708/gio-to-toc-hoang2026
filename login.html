@@ -151,12 +151,12 @@
 
         <div class="input-group">
             <label>Tên đăng nhập</label>
-            <input type="text" placeholder="Nhập email hoặc username">
+            <input type="text" id="username" placeholder="Nhập email hoặc username">
         </div>
 
         <div class="input-group">
             <label>Mật khẩu</label>
-            <input type="password" placeholder="••••••••">
+            <input type="password" id="password" placeholder="••••••••">
         </div>
 
         <button class="btn-login" id="loginBtn">Đăng nhập</button>
@@ -168,8 +168,8 @@
 
     <script>
         document.getElementById('loginBtn').addEventListener('click', function () {
-            const user = document.querySelector('input[type="text"]').value;
-            const pass = document.querySelector('input[type="password"]').value;
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
 
             if (user === 'admin' && pass === '12345') {
                 alert('Đăng nhập thành công!');
