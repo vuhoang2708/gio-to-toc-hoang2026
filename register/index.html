@@ -51,9 +51,10 @@
         }
 
         h1 {
-            font-size: 1.2rem; /* Smaller title */
+            font-size: clamp(0.65rem, 1.5vw, 0.95rem);
             font-weight: 800;
             margin-bottom: 0.1rem;
+            white-space: nowrap;
             background: linear-gradient(135deg, #fff, var(--accent));
             -webkit-background-clip: text;
             background-clip: text;
