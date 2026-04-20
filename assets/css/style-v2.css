@@ -1,0 +1,217 @@
+/* 
+   Tộc Hoàng Đông Yên - Version 2.0 Foundation CSS
+   Governance: UI/UX Standardization
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600;700;800&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+
+:root {
+    /* Primary Colors */
+    --clan-red-deep: #7f1d1d;
+    --clan-red-bright: #b91c1c;
+    --clan-gold: #f59e0b;
+    --clan-gold-soft: #fbbf24;
+    --clan-gold-dark: #d97706;
+    
+    /* Backgrounds & Neutrals */
+    --bg-dark: #0f172a;
+    --bg-near-black: #020617;
+    --bg-light: #f8fafc;
+    --bg-cream: #fffbeb;
+    
+    /* Text Colors */
+    --text-light: #f1f5f9;
+    --text-muted: rgba(241, 245, 249, 0.7);
+    --text-dark: #1e293b;
+    
+    /* Glassmorphism */
+    --glass-bg: rgba(15, 23, 42, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    
+    /* Layout Constants */
+    --container-max: 1100px;
+    --radius-lg: 24px;
+    --radius-md: 12px;
+    --transition: all 0.3s ease;
+}
+
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-near-black);
+    color: var(--text-light);
+    font-family: 'Be Vietnam Pro', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* Typography Overrides */
+h1, h2, h3, .clan-branding {
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.font-serif {
+    font-family: 'EB Garamond', serif;
+}
+
+/* ============ REUSABLE COMPONENTS ============ */
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Modern Clan Header (3-line layout) */
+.clan-header {
+    text-align: center;
+    padding: 2rem;
+}
+
+.clan-header .line-top {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 800;
+    color: #fff;
+    display: block;
+    text-transform: uppercase;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.clan-header .line-mid {
+    font-size: clamp(1rem, 3vw, 1.8rem);
+    font-weight: 700;
+    color: var(--clan-gold);
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.clan-header .line-bot {
+    font-size: clamp(0.9rem, 2.5vw, 1.5rem);
+    font-weight: 400;
+    color: var(--text-muted);
+    display: block;
+}
+
+/* Buttons */
+.btn-clan {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--clan-gold);
+    color: var(--bg-near-black);
+    text-decoration: none;
+    font-weight: 800;
+    border-radius: 50px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-clan:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.4);
+    filter: brightness(1.1);
+}
+
+.btn-clan.outline {
+    background: transparent;
+    border: 2px solid var(--clan-gold);
+    color: var(--clan-gold);
+}
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 800;
+    color: var(--clan-gold);
+    margin-bottom: 1rem;
+}
+
+.section-header .divider {
+    width: 80px;
+    height: 4px;
+    background: var(--clan-gold);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* Card Styles */
+.clan-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    transition: var(--transition);
+}
+
+.clan-card:hover {
+    border-color: var(--clan-gold);
+}
+
+/* ============ SPECIFIC SECTIONS ============ */
+
+/* Hero */
+.hero-v2 {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 22vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-v2::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--bg-near-black));
+    z-index: 1;
+}
+
+.hero-v2 .content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+/* Thư Ngỏ Elegant Scroll */
+.letter-parchment {
+    background: #fff;
+    color: #1a1a1a;
+    padding: 5rem 3rem;
+    border-radius: 4px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    font-family: 'EB Garamond', serif;
+    font-size: 1.3rem;
+    line-height: 1.8;
+}
+
+/* ============ RESPONSIVE FIXES ============ */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    section {
+        padding: 4rem 0;
+    }
+}

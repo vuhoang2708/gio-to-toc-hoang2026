@@ -6,25 +6,10 @@
     <title>Cập Nhật Thông Tin Gia Phả - Tộc Hoàng Đông Yên</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style-v2.css">
     <style>
-        :root {
-            --dark: #0f172a;
-            --accent: #b91c1c; /* Deep Red for Genealogy */
-            --gold: #d4af37;
-            --light: #f8fafc;
-            --glass-border: rgba(255, 255, 255, 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Be Vietnam Pro', sans-serif;
-        }
-
         body {
-            background: url('../assets/bg_dongyen_final.jpg') center/cover no-repeat fixed;
-            color: var(--light);
+            background: url('../assets/images/bg_dongyen_final.jpg') center/cover no-repeat fixed;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -36,43 +21,11 @@
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border);
-            padding: 2.5rem;
-            border-radius: 24px;
+            padding: 3rem;
+            border-radius: var(--radius-lg);
             width: 100%;
-            max-width: 800px;
+            max-width: 850px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        h1 .main-text {
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
-            display: block;
-            font-weight: 800;
-            background: linear-gradient(135deg, #fff, var(--gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
-        }
-
-        h1 .sub-text {
-            font-size: 1rem;
-            color: rgba(255,255,255,0.7);
-            font-weight: 400;
-        }
-
-        .instruction-brief {
-            background: rgba(185, 28, 28, 0.1);
-            border: 1px dashed var(--gold);
-            padding: 1rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            color: rgba(255,255,255,0.9);
         }
 
         .form-grid {
@@ -81,20 +34,15 @@
             gap: 1.25rem;
         }
 
-        .input-group {
-            margin-bottom: 1.25rem;
-        }
-
-        .full-width {
-            grid-column: span 2;
-        }
+        .input-group { margin-bottom: 1.25rem; }
+        .full-width { grid-column: span 2; }
 
         label {
             display: block;
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: var(--gold);
+            color: var(--clan-gold);
         }
 
         input, textarea {
@@ -105,40 +53,18 @@
             border-radius: 10px;
             color: white;
             font-size: 0.95rem;
-            transition: all 0.3s;
+            transition: var(--transition);
         }
 
         input:focus, textarea:focus {
             outline: none;
-            border-color: var(--gold);
+            border-color: var(--clan-gold);
             background: rgba(255, 255, 255, 0.1);
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 1.2rem;
-            background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-weight: 800;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 1rem;
-            box-shadow: 0 10px 20px rgba(185, 28, 28, 0.3);
-        }
-
-        .btn-submit:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.1);
-            box-shadow: 0 15px 30px rgba(185, 28, 28, 0.4);
         }
 
         .loading-spinner {
             display: none;
-            width: 20px;
-            height: 20px;
+            width: 20px; height: 20px;
             border: 3px solid rgba(255,255,255,0.1);
             border-top: 3px solid white;
             border-radius: 50%;
@@ -146,20 +72,12 @@
             margin-right: 10px;
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        #successMessage {
-            display: none;
-            text-align: center;
-            padding: 3rem 1rem;
-        }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         @media (max-width: 640px) {
             .form-grid { grid-template-columns: 1fr; }
             .full-width { grid-column: span 1; }
-            .form-card { padding: 1.5rem; }
+            .form-card { padding: 1.5rem; border-radius: 0; }
         }
     </style>
 </head>
@@ -167,14 +85,12 @@
 
     <div class="form-card">
         <div id="formContent">
-            <div class="header">
-                <h1>
-                    <span class="main-text">CẬP NHẬT GIA PHẢ</span>
-                    <span class="sub-text">Tộc Hoàng Đông Yên - Duy Xuyên - Quảng Nam</span>
-                </h1>
+            <div class="clan-header" style="padding: 0; margin-bottom: 2rem;">
+                <h1 class="line-top" style="font-size: 2.2rem;">CẬP NHẬT GIA PHẢ</h1>
+                <span class="line-mid" style="font-size: 1rem;">Tộc Hoàng Đông Yên - Duy Xuyên - Quảng Nam</span>
             </div>
 
-            <div class="instruction-brief">
+            <div style="background: rgba(255,255,255,0.03); border: 1px dashed var(--clan-gold); padding: 1rem; border-radius: 12px; margin-bottom: 2rem; font-size: 0.9rem; text-align: center;">
                 <b>Lưu ý:</b> Quý bà con vui lòng cung cấp thông tin chính xác để Ban trị sự đối chiếu và cập nhật vào cây phả hệ chung của Tộc.
             </div>
 
@@ -232,22 +148,63 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn-submit" id="submitBtn">
+                <button type="submit" class="btn-clan" id="submitBtn" style="width: 100%;">
                     <span class="loading-spinner" id="spinner"></span>
                     <span id="btnText">Gửi thông tin cập nhật</span>
                 </button>
             </form>
         </div>
 
-        <div id="successMessage">
+        <div id="successMessage" style="display: none; text-align: center; padding: 3rem 0;">
             <div style="font-size: 4rem; margin-bottom: 1.5rem;">🙏</div>
-            <h2 style="color: var(--gold); margin-bottom: 1rem;">Gửi dữ liệu thành công!</h2>
-            <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">Cảm ơn tấm lòng của bạn hướng về cội nguồn. Thư ký Tộc sẽ cập nhật thông tin trong thời gian sớm nhất.</p>
-            <button onclick="window.location.reload()" style="margin-top: 2rem; background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 0.8rem 2rem; border-radius: 8px; cursor: pointer;">Gửi thêm thông tin khác</button>
+            <h2 style="color: var(--clan-gold); margin-bottom: 1rem;">Gửi dữ liệu thành công!</h2>
+            <p style="color: var(--text-muted); line-height: 1.6;">Cảm ơn tấm lòng của bạn hướng về cội nguồn. Thanh danh Tộc Hoàng sẽ mãi trường tồn.</p>
+            <button onclick="window.location.reload()" class="btn-clan outline" style="margin-top: 2rem;">Gửi thêm thông tin khác</button>
             <br>
-            <a href="../" style="display: inline-block; margin-top: 1rem; color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem;">Quay về trang chủ</a>
+            <a href="../" style="display: inline-block; margin-top: 1.5rem; color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem;">Quay về trang chủ</a>
         </div>
     </div>
+
+    <script>
+        window.CUSTOM_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwd3dvNAPJ95hagerzwKSeOkud690qV_irK1hHGgCIWClOkvCiAn8XDBxycGUp0Jezk2w/exec";
+    </script>
+    <script src="../assets/js/tracking.js?v=2.6"></script>
+    <script>
+        document.getElementById('genealogyForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const spinner = document.getElementById('spinner');
+            const text = document.getElementById('btnText');
+            
+            btn.disabled = true;
+            spinner.style.display = 'inline-block';
+            text.innerText = 'Đang xử lý...';
+
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                if (window.logToSheet) {
+                    await window.logToSheet('GENEALOGY_SUBMIT', data.providerName, {
+                        ...data,
+                        type: 'GENEALOGY_UPDATE',
+                        source: 'DongYen_GenealogyPage_V2'
+                    });
+                }
+
+                document.getElementById('formContent').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+            } catch (err) {
+                console.error(err);
+                alert('Có lỗi xảy ra, vui lòng thử lại sau.');
+                btn.disabled = false;
+                spinner.style.display = 'none';
+                text.innerText = 'Gửi thông tin cập nhật';
+            }
+        });
+    </script>
+</body>
+</html>
 
     <script>
         window.CUSTOM_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwd3dvNAPJ95hagerzwKSeOkud690qV_irK1hHGgCIWClOkvCiAn8XDBxycGUp0Jezk2w/exec";

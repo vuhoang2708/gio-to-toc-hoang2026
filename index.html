@@ -24,397 +24,62 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600;700;800&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
     rel="stylesheet" />
-  <style>
-    :root {
-      --dark: #0f172a;
-      --deep-red: #7f1d1d;
-      --gold: #f59e0b;
-      --accent: #f59e0b;
-      --light: #f8fafc;
-      --glass: rgba(15, 23, 42, 0.85);
-      --glass-border: rgba(255, 255, 255, 0.1);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Be Vietnam Pro', sans-serif;
-    }
-
-    body {
-      background-color: #000;
-      color: var(--light);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* Hero Section */
-    .hero {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      text-align: center;
-      padding-top: 22vh;
-      background: url('assets/bg_dongyen_final.jpg') center/cover no-repeat;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
-      z-index: 1;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      padding: 2rem;
-      max-width: 1000px;
-      width: 100%;
-    }
-
-    .clan-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--gold);
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    h1 {
-      font-weight: 800;
-      margin-bottom: 1.5rem;
-      line-height: 1.3;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    }
-    h1 .main-text {
-      font-size: clamp(2.5rem, 8vw, 4.5rem);
-      display: block;
-      color: #fff;
-      margin-bottom: 0.5rem;
-    }
-    h1 .sub-text {
-      font-size: clamp(1rem, 3vw, 1.8rem);
-      display: block;
-      font-weight: 600;
-      color: var(--gold);
-    }
-    h1 .loc-text {
-      font-size: clamp(0.9rem, 2.5vw, 1.5rem);
-      display: block;
-      font-weight: 400;
-      color: rgba(255,255,255,0.8);
-    }
-
-    .motto {
-      font-size: 1.25rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 2.5rem;
-      font-style: italic;
-    }
-
-    .btn-main {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      background: var(--gold);
-      color: #000;
-      text-decoration: none;
-      font-weight: 800;
-      border-radius: 50px;
-      transition: all 0.3s;
-      box-shadow: 0 10px 30px rgba(245, 158, 11, 0.4);
-    }
-
-    .btn-main:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(245, 158, 11, 0.5);
-      filter: brightness(1.1);
-    }
-
-    /* Section Styles */
-    section {
-      padding: 6rem 1.5rem;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .section-header h2 {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-
-    .section-header .divider {
-      width: 80px;
-      height: 4px;
-      background: var(--gold);
-      margin: 0 auto;
-      border-radius: 2px;
-    }
-
-    /* History / About */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .about-text p {
-      margin-bottom: 1.5rem;
-      color: rgba(255,255,255,0.8);
-      font-size: 1.1rem;
-    }
-
-    .about-img {
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid var(--glass-border);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    }
-
-    .about-img img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* Values */
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .value-card {
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      padding: 2.5rem;
-      border-radius: 24px;
-      border: 1px solid var(--glass-border);
-      text-align: center;
-      transition: all 0.3s;
-    }
-
-    .value-card:hover {
-      background: rgba(255,255,255,0.05);
-      border-color: var(--gold);
-    }
-
-    .value-icon {
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
-      display: block;
-    }
-
-    .value-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      color: var(--gold);
-    }
-
-    /* Event Invite */
-    .event-invite {
-      background: linear-gradient(rgba(127, 29, 29, 0.9), rgba(127, 29, 29, 0.9)), url('assets/bg_dongyen.png') center/cover;
-      border-radius: 30px;
-      padding: 4rem;
-      text-align: center;
-      margin-top: 4rem;
-    }
-
-    .event-details {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      margin: 2rem 0;
-      flex-wrap: wrap;
-    }
-
-    .detail-item {
-      text-align: center;
-    }
-
-    .detail-item b {
-      display: block;
-      font-size: 1.5rem;
-      color: var(--gold);
-    }
-
-    footer {
-      padding: 3rem;
-      text-align: center;
-      border-top: 1px solid var(--glass-border);
-      color: rgba(255,255,255,0.5);
-      font-size: 0.9rem;
-    }
-
-    /* Thư Ngỏ Styles */
-    .letter-section {
-      background: #fff;
-      color: #1a1a1a;
-      padding: 5rem 2rem;
-      border-radius: 4px;
-      margin: 4rem auto;
-      max-width: 850px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .letter-paper {
-      font-family: 'EB Garamond', serif;
-      line-height: 1.8;
-      font-size: 1.25rem;
-      position: relative;
-      z-index: 2;
-    }
-
-    .letter-paper h2 {
-      font-size: 2.2rem;
-      text-align: center;
-      margin-bottom: 2rem;
-      font-family: 'EB Garamond', serif;
-      color: var(--deep-red);
-      font-weight: 800;
-    }
-
-    .letter-header {
-      text-align: center;
-      margin-bottom: 3rem;
-      border-bottom: 1px double #ccc;
-      padding-bottom: 1rem;
-    }
-
-    .letter-header p {
-      font-size: 1rem;
-      margin: 0;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .letter-content p {
-      margin-bottom: 1.5rem;
-      text-align: justify;
-    }
-
-    .signature-area {
-      margin-top: 4rem;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      padding-right: 2rem;
-    }
-
-    .signature-date {
-      font-style: italic;
-      margin-bottom: 1rem;
-      font-size: 1rem;
-    }
-
-    .signature-name {
-      font-weight: 800;
-      font-size: 1.3rem;
-      margin-top: 2rem; /* Adjusted for invisible signature space */
-    }
-
-    /* Genealogy Instruction Box (Original Aesthetic) */
-    .instruction-box {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px dashed var(--gold);
-      padding: 2.5rem;
-      border-radius: 12px;
-      margin-bottom: 3rem;
-      color: rgba(255,255,255,0.9);
-      font-size: 1rem;
-      line-height: 1.8;
-    }
-    .instruction-box ul {
-      margin-top: 1rem;
-      padding-left: 1.5rem;
-    }
-
-    @media (max-width: 768px) {
-      .letter-section {
-        padding: 3rem 1.5rem;
-        margin: 2rem 1rem;
-      }
-      .letter-paper {
-        font-size: 1.15rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/style-v2.css">
 </head>
 
 <body>
 
   <!-- HERO -->
-  <header class="hero">
-    <div class="hero-content">
-      <span class="clan-title">HỘI ĐỒNG GIA TỘC</span>
-      <h1>
-        <span class="main-text">TỘC HOÀNG</span>
-        <span class="sub-text">Làng Đông Yên, Xã Duy Trinh</span>
-        <span class="loc-text">Huyện Duy Xuyên - Quảng Nam (Đà Nẵng)</span>
-      </h1>
-      <p class="motto">"Cây có gốc mới nở nhành xanh ngọn,<br>Nước có nguồn mới bể rộng sông sâu"</p>
-      <a href="register/" class="btn-main">Đăng ký Lễ Tế Xuân 2026</a>
+  <header class="hero-v2" style="background-image: url('assets/images/bg_dongyen_final.jpg');">
+    <div class="content">
+      <div class="clan-header">
+        <span style="color: var(--clan-gold); letter-spacing: 4px; font-weight: 700; margin-bottom: 1rem; display: block;">HỘI ĐỒNG GIA TỘC</span>
+        <h1 class="line-top">TỘC HOÀNG</h1>
+        <span class="line-mid">Làng Đông Yên, Xã Duy Trinh</span>
+        <span class="line-bot">Huyện Duy Xuyên - Quảng Nam (Đà Nẵng)</span>
+      </div>
+      <p style="text-align: center; font-style: italic; color: rgba(255,255,255,0.8); margin-bottom: 2rem;">"Cây có gốc mới nở nhành xanh ngọn,<br>Nước có nguồn mới bể rộng sông sâu"</p>
+      <div style="text-align: center;">
+        <a href="register/" class="btn-clan">Đăng ký Lễ Tế Xuân 2026</a>
+      </div>
     </div>
   </header>
 
   <!-- ABOUT -->
-  <section id="about">
+  <section id="about" style="padding: 6rem 0;">
     <div class="container">
-      <div style="max-width: 720px; margin: 0 auto;">
-        <div class="section-header" style="text-align: center;">
-          <h2>Cội Nguồn Dòng Tộc</h2>
-          <div class="divider"></div>
-        </div>
-        <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 1.5rem; text-align: center;">Tộc Hoàng Đông Yên có khởi nguồn từ vùng đất Duy Xuyên, Quảng Nam - nơi địa linh nhân kiệt với truyền thống hiếu học và lòng yêu quê hương nồng nàn.</p>
-        <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 1.5rem; text-align: center;">Qua bao thế hệ, con cháu họ Hoàng đã không ngừng nỗ lực, đóng góp công sức xây dựng quê hương, gìn giữ nếp gia phong và bản sắc của tổ tiên để lại.</p>
-        <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 0; text-align: center;">Nhà thờ Tộc không chỉ là nơi thờ tự linh thiêng mà còn là biểu tượng của sự đoàn kết, nơi hội tụ của những tâm hồn luôn hướng về cội nguồn.</p>
+      <div class="section-header">
+        <h2>Cội Nguồn Dòng Tộc</h2>
+        <div class="divider"></div>
+      </div>
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <p style="margin-bottom: 1.5rem;">Tộc Hoàng Đông Yên có khởi nguồn từ vùng đất Duy Xuyên, Quảng Nam - nơi địa linh nhân kiệt với truyền thống hiếu học và lòng yêu quê hương nồng nàn.</p>
+        <p style="margin-bottom: 1.5rem;">Qua bao thế hệ, con cháu họ Hoàng đã không ngừng nỗ lực, đóng góp công sức xây dựng quê hương, gìn giữ nếp gia phong và bản sắc của tổ tiên để lại.</p>
+        <p>Nhà thờ Tộc không chỉ là nơi thờ tự linh thiêng mà còn là biểu tượng của sự đoàn kết, nơi hội tụ của những tâm hồn luôn hướng về cội nguồn.</p>
       </div>
     </div>
   </section>
 
   <!-- VALUES -->
-  <section id="values" style="background: rgba(255,255,255,0.02);">
+  <section id="values" style="background: rgba(255,255,255,0.02); padding: 6rem 0;">
     <div class="container">
       <div class="section-header">
         <h2>Giá Trị Cốt Lõi</h2>
         <div class="divider"></div>
       </div>
-      <div class="values-grid">
-        <div class="value-card">
-          <span class="value-icon">🙏</span>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div class="clan-card">
+          <span style="font-size: 3rem; margin-bottom: 1.5rem; display: block;">🙏</span>
           <h3>Uống Nước Nhớ Nguồn</h3>
           <p>Gìn giữ truyền thống thờ cúng tổ tiên, hiếu kính với cha mẹ và tiền nhân.</p>
         </div>
-        <div class="value-card">
-          <span class="value-icon">🤝</span>
+        <div class="clan-card">
+          <span style="font-size: 3rem; margin-bottom: 1.5rem; display: block;">🤝</span>
           <h3>Đoàn Kết Tương Trợ</h3>
           <p>Kết nối con cháu trong và ngoài nước, cùng nhau sẻ chia và hỗ trợ trong cuộc sống.</p>
         </div>
-        <div class="value-card">
-          <span class="value-icon">🎓</span>
+        <div class="clan-card">
+          <span style="font-size: 3rem; margin-bottom: 1.5rem; display: block;">🎓</span>
           <h3>Khuyến Học Khuyến Tài</h3>
           <p>Động viên tinh thần hiếu học của thế hệ trẻ, vinh danh những tấm gương thành đạt.</p>
         </div>
@@ -423,49 +88,47 @@
   </section>
 
   <!-- THƯ NGỎ -->
-  <section id="letter" style="background: #000;">
+  <section id="letter" style="padding: 6rem 0;">
     <div class="container">
-      <div class="letter-section">
-        <div class="letter-paper">
-          <div class="letter-header">
-            <p>TỘC HOÀNG</p>
-            <p style="font-size: 0.8rem;">DUY TRINH ( ĐÔNG YÊN CŨ ) - DUY XUYÊN - QUẢNG NAM (NAY LÀ XÃ DUY XUYÊN, ĐÀ NẴNG)</p>
-            <p style="margin: 0.5rem 0;">------00000------</p>
-          </div>
+      <div class="letter-parchment">
+        <div style="text-align: center; margin-bottom: 3rem; border-bottom: 1px double #ccc; padding-bottom: 1rem;">
+          <p style="font-weight: 700;">TỘC HOÀNG</p>
+          <p style="font-size: 0.9rem; text-transform: uppercase;">DUY TRINH ( ĐÔNG YÊN CŨ ) - DUY XUYÊN - QUẢNG NAM (NAY LÀ XÃ DUY XUYÊN, ĐÀ NẴNG)</p>
+          <p style="margin: 0.5rem 0;">------00000------</p>
+        </div>
+        
+        <h2 style="text-align: center; color: var(--clan-red-deep); margin-bottom: 2rem;">THƯ NGỎ</h2>
+        <div style="text-align: center; margin-bottom: 2rem; font-weight: 700;">V/V CẬP NHẬT GIA PHẢ TỘC HOÀNG</div>
+
+        <div>
+          <p><b>KÍNH GỬI : TOÀN THỂ CON CHÁU NỘI, NGOẠI TỘC HOÀNG</b><br>
+          đang sinh sống, làm việc trong nước và ngoài nước.</p>
           
-          <h2>THƯ NGỎ</h2>
-          <div style="text-align: center; margin-bottom: 2rem; font-weight: 700;">V/V CẬP NHẬT GIA PHẢ TỘC HOÀNG</div>
+          <p style="margin: 1.5rem 0;">Kính thưa quý bà con thân thuộc trong Tộc Hoàng.</p>
+          
+          <p style="margin-bottom: 1.5rem; text-align: justify;">“Cây có cội, nước có nguồn “, “ Lá rụng về cội “. Những câu tục ngữ này của cha ông nói lên truyền thống tốt đẹp của người Việt Nam từ bao đời nay, luôn nhớ đến Tổ tiên. Tình cảm ấy được thể hiện qua việc ghi chép gia phả. Gia phả mỗi dòng họ, không chỉ là cuốn sổ ghi chép tên tuổi, mà còn gắn bó với Nhà thờ và Nghĩa trang Tộc, là báu vật lưu giữ hình bóng, công đức của Tổ tiên, kết nối các thế hệ và giáo dục con cháu nhiều đời sau này.</p>
+          
+          <p style="margin-bottom: 1.5rem; text-align: justify;">Tộc Hoàng chúng ta đã được các bậc tiền nhân ghi chép, biên soạn thành Gia phả từ năm Quý Hợi (1863), được ông Hoàng Lâm ( Đời thứ 10 ) cẩn dịch từ chữ Hán, ghi chép tiếp vào năm Ất Mùi (1955) và ông Hoàng Kim ( Đời thứ 10 ) tiếp tục cập nhật hoàn thiện và in ấn vào năm Mậu Dần (1998). Cùng với gia phả, Tộc Hoàng có cây phả hệ do ông Hoàng Hồ ( Đời thứ 10 ) vẽ năm Nhâm Ngọ (1942). Trên cơ sở bản gia phả năm 1998; ông Hoàng Hy ( Đời thứ 11 ) cập nhật, vẽ lại cây phả hệ vào năm Đinh Hợi (2007) và ông Hoàng Xuân Sinh ( Đời thứ 11 ) tiếp tục bổ sung vào năm Nhâm Dần ( 2022 ).</p>
+          
+          <p style="margin-bottom: 1.5rem; text-align: justify;">Từ năm 1998 đến nay đã 28 năm; con cháu Tộc Hoàng Duy Trinh chúng ta có nhiều thay đổi : cũng có người về với Tổ tiên, và các thế hệ sau tiếp tục sinh sôi phát triển thêm đến đời thứ 14, cũng có sự thay đổi nơi cư trú ở trong cũng như ngoài nước... Vì vậy, để tiếp tục gìn giữ, phát triển những giá trị của tiền nhân, cần thiết phải tiếp tục cập nhật thông tin, hiệu chỉnh để hoàn thiện gia phả, hoàn chỉnh cây phả hệ và lập phả đồ mới để giúp các thế hệ con cháu đời sau hiểu rõ hơn về cội nguồn của mình.</p>
+          
+          <p style="margin-bottom: 1.5rem;">Rất mong quý bà con trong Tộc nhiệt tình hưởng ứng, đóng góp công sức và các thông tin theo nội dung đính kèm Thư ngỏ này.</p>
+          
+          <p>Chúc con cháu Tộc Hoàng sức khỏe, thịnh vượng.</p>
+        </div>
 
-          <div class="letter-content">
-            <p><b>KÍNH GỬI : TOÀN THỂ CON CHÁU NỘI, NGOẠI TỘC HOÀNG</b><br>
-            đang sinh sống, làm việc trong nước và ngoài nước.</p>
-            
-            <p>Kính thưa quý bà con thân thuộc trong Tộc Hoàng.</p>
-            
-            <p>“Cây có cội, nước có nguồn “, “ Lá rụng về cội “. Những câu tục ngữ này của cha ông nói lên truyền thống tốt đẹp của người Việt Nam từ bao đời nay, luôn nhớ đến Tổ tiên. Tình cảm ấy được thể hiện qua việc ghi chép gia phả. Gia phả mỗi dòng họ, không chỉ là cuốn sổ ghi chép tên tuổi, mà còn gắn bó với Nhà thờ và Nghĩa trang Tộc, là báu vật lưu giữ hình bóng, công đức của Tổ tiên, kết nối các thế hệ và giáo dục con cháu nhiều đời sau này.</p>
-            
-            <p>Tộc Hoàng chúng ta đã được các bậc tiền nhân ghi chép, biên soạn thành Gia phả từ năm Quý Hợi (1863), được ông Hoàng Lâm ( Đời thứ 10 ) cẩn dịch từ chữ Hán, ghi chép tiếp vào năm Ất Mùi (1955) và ông Hoàng Kim ( Đời thứ 10 ) tiếp tục cập nhật hoàn thiện và in ấn vào năm Mậu Dần (1998). Cùng với gia phả, Tộc Hoàng có cây phả hệ do ông Hoàng Hồ ( Đời thứ 10 ) vẽ năm Nhâm Ngọ (1942). Trên cơ sở bản gia phả năm 1998; ông Hoàng Hy ( Đời thứ 11 ) cập nhật, vẽ lại cây phả hệ vào năm Đinh Hợi (2007) và ông Hoàng Xuân Sinh ( Đời thứ 11 ) tiếp tục bổ sung vào năm Nhâm Dần ( 2022 ).</p>
-            
-            <p>Từ năm 1998 đến nay đã 28 năm; con cháu Tộc Hoàng Duy Trinh chúng ta có nhiều thay đổi : cũng có người về với Tổ tiên, và các thế hệ sau tiếp tục sinh sôi phát triển thêm đến đời thứ 14, cũng có sự thay đổi nơi cư trú ở trong cũng như ngoài nước... Vì vậy, để tiếp tục gìn giữ, phát triển những giá trị của tiền nhân, cần thiết phải tiếp tục cập nhật thông tin, hiệu chỉnh để hoàn thiện gia phả, hoàn chỉnh cây phả hệ và lập phả đồ mới để giúp các thế hệ con cháu đời sau hiểu rõ hơn về cội nguồn của mình.</p>
-            
-            <p>Rất mong quý bà con trong Tộc nhiệt tình hưởng ứng, đóng góp công sức và các thông tin theo nội dung đính kèm Thư ngỏ này.</p>
-            
-            <p>Chúc con cháu Tộc Hoàng sức khỏe, thịnh vượng.</p>
-          </div>
-
-          <div class="signature-area">
-            <div class="signature-date">Đà Nẵng, ngày 05 tháng 4 năm 2026</div>
-            <div style="font-weight: 700; margin-right: 3rem;">TM. HOÀNG TỘC</div>
-            <div style="height: 40px;"></div> <!-- Space for signature -->
-            <div class="signature-name">HOÀNG NGỌC THỊNH ( Đời thứ 11 )</div>
-          </div>
+        <div style="margin-top: 4rem; display: flex; flex-direction: column; align-items: flex-end; padding-right: 2rem;">
+          <div style="font-style: italic; margin-bottom: 1rem;">Đà Nẵng, ngày 05 tháng 4 năm 2026</div>
+          <div style="font-weight: 700; margin-right: 3rem;">TM. HOÀNG TỘC</div>
+          <div style="height: 60px;"></div>
+          <div style="font-weight: 800; font-size: 1.4rem;">HOÀNG NGỌC THỊNH ( Đời thứ 11 )</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- GENEALOGY UPDATE SECTION -->
-  <section id="genealogy">
+  <section id="genealogy" style="padding: 6rem 0;">
     <div class="container">
       <div class="section-header">
         <h2>Cập Nhật Thông Tin Gia Phả</h2>
@@ -473,58 +136,61 @@
       </div>
 
       <div style="max-width: 900px; margin: 0 auto;">
-        <div class="instruction-box">
-          <h3 style="color: var(--gold); margin-bottom: 1rem; text-align: center;">NỘI DUNG CUNG CẤP THÔNG TIN (Từ đời thứ 10 về sau)</h3>
+        <div class="clan-card" style="margin-bottom: 3rem; background: rgba(245, 158, 11, 0.05); border-style: dashed;">
+          <h3 style="color: var(--clan-gold); margin-bottom: 1rem; text-align: center;">NỘI DUNG CUNG CẤP THÔNG TIN (Từ đời thứ 10 về sau)</h3>
           <p>Quý bà con vui lòng chuẩn bị và cung cấp các thông tin sau để cập nhật vào Gia phả Tộc:</p>
-          <ul>
+          <ul style="margin: 1rem 0 1.5rem 1.5rem; color: rgba(255,255,255,0.8);">
             <li>Thông tin cá nhân (Ngày sinh Dương/Âm, Quê quán, Nơi cư trú).</li>
             <li>Thông tin gia đình (Họ tên Cha, Ông nội, Vợ/Chồng, Con cái).</li>
             <li>Đối với người đã quá cố: Cung cấp thêm ngày mất, nơi an táng.</li>
             <li>Các ông bà các đời thứ 9 trở về trước: Cung cấp thông tin chính xác để hiệu chỉnh.</li>
           </ul>
-          <div style="margin-top: 1.5rem; border-top: 1px solid rgba(212, 175, 55, 0.2); padding-top: 1rem;">
+          <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; font-size: 0.95rem;">
             <p><b>Người nhận thông tin:</b> Ông Hoàng Công Hiên (Thư ký Tộc) - 0946.000.777</p>
             <p><b>Địa chỉ:</b> 79 Phan Bội Châu, Phường Bàn Thạch, TP. Đà Nẵng</p>
             <p><b>Hạn cuối:</b> Trước ngày 30/11/2026</p>
           </div>
         </div>
 
-        <a href="genealogy/" class="btn-main" style="display: block; width: fit-content; margin: 0 auto 3rem;">Bổ sung thông tin gia phả ngay</a>
+        <div style="text-align: center;">
+          <a href="genealogy/" class="btn-clan">Bổ sung thông tin gia phả ngay</a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- EVENT INVITE -->
-  <section id="event">
-    <div class="container">
-      <div class="event-invite">
-        <h2>Kính Mời Tham Dự Lễ Tế Xuân 2026</h2>
-        <p>Hội đồng gia tộc trân trọng kính mời con cháu khắp nơi về hội tụ</p>
-        <div class="event-details">
-          <div class="detail-item">
-            <b>26.04.2026</b>
-            <span>(Tức 10/3 Âm Lịch)</span>
-          </div>
-          <div class="detail-item">
-            <b>08:00 Sáng</b>
-            <span>Bắt đầu hành lễ</span>
-          </div>
-          <div class="detail-item">
-            <b>Duy Xuyên</b>
-            <span>Quảng Nam</span>
-          </div>
+  <section id="event" style="background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('assets/images/bg_dongyen_real.jpg') center/cover; padding: 6rem 0;">
+    <div class="container" style="text-align: center;">
+      <h2 style="font-size: 2.5rem; color: var(--clan-gold); margin-bottom: 1rem;">Kính Mời Tham Dự Lễ Tế Xuân 2026</h2>
+      <p style="margin-bottom: 3rem;">Hội đồng gia tộc trân trọng kính mời con cháu khắp nơi về hội tụ</p>
+      
+      <div style="display: flex; justify-content: center; gap: 3rem; margin-bottom: 3rem; flex-wrap: wrap;">
+        <div>
+          <b style="display: block; font-size: 1.8rem; color: var(--clan-gold);">26.04.2026</b>
+          <span>(Tức 10/3 Âm Lịch)</span>
         </div>
-        <a href="register/" class="btn-main" style="background: #fff; color: var(--deep-red); box-shadow: none;">Xem Chi Tiết & Đăng Ký</a>
+        <div>
+          <b style="display: block; font-size: 1.8rem; color: var(--clan-gold);">08:00 Sáng</b>
+          <span>Bắt đầu hành lễ</span>
+        </div>
+        <div>
+          <b style="display: block; font-size: 1.8rem; color: var(--clan-gold);">Duy Xuyên</b>
+          <span>Quảng Nam</span>
+        </div>
       </div>
+      
+      <a href="register/" class="btn-clan outline">Xem Chi Tiết & Đăng Ký</a>
     </div>
   </section>
 
-  <footer>
+  <footer style="padding: 4rem 1.5rem; text-align: center; border-top: 1px solid var(--glass-border);">
     <p>© 2026 Tộc Hoàng Đông Yên - Duy Xuyên - Quảng Nam (Đà Nẵng)<br>
-    "Phúc ấm tổ tiên lưu hậu thế - Đức dày con cháu hiển tiền nhân"</p>
+    <span style="font-style: italic; color: var(--text-muted);">"Phúc ấm tổ tiên lưu hậu thế - Đức dày con cháu hiển tiền nhân"</span></p>
   </footer>
 
-  <script src="tracking.js?v=2.4"></script>
+  <script src="assets/js/tracking.js?v=2.6"></script>
 </body>
+</html>
 
 </html>

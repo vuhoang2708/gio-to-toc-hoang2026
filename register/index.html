@@ -6,31 +6,14 @@
     <title>Đăng ký Lễ tế xuân hằng năm - Tộc Hoàng Đông Yên - Duy Xuyên - Quảng Nam (Đà Nẵng)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style-v2.css">
     <style>
-        :root {
-            --dark: #0f172a;
-            --mid: #334155;
-            --light: #f8fafc;
-            --accent: #f59e0b; /* Warm Yellow for Clan Event */
-            --warm-yellow: #f59e0b;
-            --glass: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Be Vietnam Pro', sans-serif;
-        }
-
         body {
-            background: url('../assets/bg_dongyen_final.jpg') center/cover no-repeat;
-            color: var(--light);
+            background: url('../assets/images/bg_dongyen_final.jpg') center/cover no-repeat;
             min-height: 100vh;
             display: flex;
             align-items: flex-end;
-            justify-content: flex-end; /* Move to the right */
+            justify-content: flex-end;
             padding: 30px;
         }
 
@@ -38,117 +21,44 @@
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
-            padding: 1.2rem 1.5rem;
-            border-radius: 20px;
+            padding: 2rem;
+            border-radius: var(--radius-lg);
             width: 100%;
-            max-width: 500px; /* Increased slightly to prevent word wrapping issues */
+            max-width: 500px;
             box-shadow: 0 10px 50px rgba(0, 0, 0, 0.9);
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 1rem; /* Tighten */
-        }
-
-        h1 {
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            line-height: 1.2;
-            text-align: center;
-        }
-        h1 .main-text {
-            font-size: clamp(1.5rem, 4vw, 2.2rem);
-            display: block;
-            margin-bottom: 0.2rem;
-            background: linear-gradient(135deg, #fff, var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        h1 .sub-text {
-            font-size: clamp(0.8rem, 2vw, 1rem);
-            display: block;
-            font-weight: 600;
-            color: #fff;
-            opacity: 0.9;
-        }
-        h1 .loc-text {
-            font-size: clamp(0.7rem, 1.8vw, 0.9rem);
-            display: block;
-            font-weight: 400;
-            color: rgba(255,255,255,0.7);
-        }
-
-        .subtitle {
-            color: rgba(255, 255, 255, 0.6);
-            line-height: 1.6;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .input-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .input-group.full-width {
-            grid-column: span 2;
-        }
-
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group.full-width { grid-column: span 2; }
+        
         label {
             display: block;
             font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--clan-gold);
         }
 
-        input, select, textarea {
+        input[type="text"], input[type="tel"], input[type="email"], input[type="number"], select, textarea {
             width: 100%;
-            padding: 0.75rem; /* Reduced */
+            padding: 0.75rem;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--glass-border);
             border-radius: 10px;
             color: white;
-            font-size: 0.9rem; /* Smaller */
-            transition: all 0.3s;
+            font-size: 0.9rem;
+            transition: var(--transition);
         }
 
-        input:focus, select:focus, textarea:focus {
+        input:focus {
             outline: none;
-            border-color: var(--accent);
+            border-color: var(--clan-gold);
             background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 1.25rem;
-            background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 16px;
-            font-weight: 800;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            margin-top: 2rem;
-            box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.5);
-        }
-
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px -10px rgba(16, 185, 129, 0.6);
-            filter: brightness(1.1);
         }
 
         .loading-spinner {
             display: none;
-            width: 20px;
-            height: 20px;
+            width: 20px; height: 20px;
             border: 3px solid rgba(255,255,255,0.1);
             border-top: 3px solid white;
             border-radius: 50%;
@@ -156,91 +66,67 @@
             margin-right: 10px;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        #successMessage {
-            display: none;
-            text-align: center;
-            padding: 2rem;
-        }
-
-
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         @media (max-width: 640px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-            .input-group.full-width {
-                grid-column: span 1;
-            }
+            body { align-items: center; justify-content: center; padding: 10px; }
+            .form-card { border-radius: 0; height: 100vh; max-width: none; }
         }
     </style>
 </head>
 <body>
 
     <div class="form-card" id="formWrapper">
-        <div class="header">
-            <h1>
-                <span class="main-text">TỘC HOÀNG</span>
-                <span class="sub-text">Làng Đông Yên, Xã Duy Trinh</span>
-                <span class="loc-text">Huyện Duy Xuyên - Quảng Nam (Đà Nẵng)</span>
-            </h1>
-            <p class="subtitle" style="font-size: 1rem; color: #fff;">THÔNG BÁO: Lễ tế xuân hằng năm</p>
-            <p class="subtitle" style="margin-top: 5px; font-size: 0.85rem;">Tổ chức lúc 8:00, Chủ Nhật, 26/04/2026 (10/3 âm lịch)<br>Địa điểm: Nhà thờ Tộc Hoàng Đông Yên, Duy Xuyên, Quảng Nam</p>
+        <div class="clan-header" style="padding: 0; margin-bottom: 1.5rem;">
+            <h1 class="line-top" style="font-size: 2rem;">TỘC HOÀNG</h1>
+            <span class="line-mid" style="font-size: 0.9rem;">Làng Đông Yên, Xã Duy Trinh</span>
+            <span class="line-bot" style="font-size: 0.8rem;">Duy Xuyên - Quảng Nam (Đà Nẵng)</span>
         </div>
+        
+        <p style="text-align: center; color: var(--clan-gold); font-weight: 700; margin-bottom: 0.5rem;">ĐĂNG KÝ LỄ TẾ XUÂN 2026</p>
+        <p style="text-align: center; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Thời gian: 8:00, 26/04/2026 (10/3 âm lịch)<br>Địa điểm: Nhà thờ Tộc Hoàng Đông Yên</p>
 
         <form id="crmForm">
-            <div class="form-grid">
-                <div class="input-group full-width">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="input-group" style="grid-column: span 2;">
                     <label>Họ và tên *</label>
                     <input type="text" name="fullName" required placeholder="Nhập họ tên...">
                 </div>
                 <div class="input-group">
                     <label>Số điện thoại *</label>
-                    <input type="tel" name="phone" required placeholder="Nhập số điện thoại...">
+                    <input type="tel" name="phone" required placeholder="SĐT liên hệ...">
                 </div>
                 <div class="input-group">
-                    <label>Email liên hệ (Tùy chọn)</label>
-                    <input type="email" name="email" placeholder="Nhập địa chỉ email...">
+                    <label>Số người đi cùng *</label>
+                    <input type="number" name="numAttendees" required min="1" value="1">
                 </div>
-                <div class="input-group">
-                    <label>Số người tham dự *</label>
-                    <input type="number" name="numAttendees" required min="1" value="1" placeholder="Số lượng...">
-                </div>
-                <div class="input-group full-width">
-                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <div class="input-group" style="grid-column: span 2;">
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; background: rgba(255,255,255,0.05); padding: 0.8rem; border-radius: 8px; border: 1px solid var(--glass-border);">
                         <input type="checkbox" name="shuttle_bus" value="Yes" style="width: auto;">
-                        <span>Đi chung xe 16 chỗ từ Đà Nẵng</span>
+                        <span style="font-size: 0.85rem;">Đi chung xe 16 chỗ từ Đà Nẵng</span>
                     </label>
                 </div>
                 <input type="hidden" name="event_id" value="LE_TE_XUAN_2026">
             </div>
 
-            <button type="submit" class="btn-submit" id="submitBtn" style="margin-top: 1rem;">
+            <button type="submit" class="btn-clan" id="submitBtn" style="width: 100%; margin-top: 1rem;">
                 <span class="loading-spinner"></span>
                 <span class="btn-text">Gửi đăng ký tham dự</span>
             </button>
-
-
         </form>
 
-        <div id="successMessage">
+        <div id="successMessage" style="display: none; text-align: center; padding: 2rem 0;">
             <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
-            <h2 style="margin-bottom: 1rem; color: var(--accent);">Gửi thông tin thành công!</h2>
-            <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">Hội đồng gia tộc đã nhận được thông báo tham dự của bạn. Hẹn gặp lại vào ngày 26/04/2026.</p>
-
+            <h2 style="color: var(--clan-gold); margin-bottom: 1rem;">Đăng ký thành công!</h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Hội đồng gia tộc đã nhận được thông tin. Hẹn gặp lại bạn tại Nhà thờ Tộc.</p>
+            <a href="../" class="btn-clan outline" style="margin-top: 2rem;">Về trang chủ</a>
         </div>
     </div>
 
     <script>
-        // Cấu hình linh hoạt cho Webhook URL
-        // Nếu user muốn lưu vào Sheet khác, thay URL bên dưới:
         window.CUSTOM_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwd3dvNAPJ95hagerzwKSeOkud690qV_irK1hHGgCIWClOkvCiAn8XDBxycGUp0Jezk2w/exec";
     </script>
-    <script src="../tracking.js?v=2.4"></script>
+    <script src="../assets/js/tracking.js?v=2.6"></script>
     <script>
         document.getElementById('crmForm').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -250,7 +136,7 @@
             
             btn.disabled = true;
             spinner.style.display = 'inline-block';
-            text.innerText = 'Đang xử lý...';
+            text.innerText = 'Đang gửi...';
 
             const formData = new FormData(e.target);
             const data = Object.fromEntries(formData.entries());
@@ -260,13 +146,13 @@
                     await window.logToSheet('CLAN_EVENT_REGISTER', data.fullName, {
                         ...data,
                         type: 'CLAN_MEMBER_CONFIRM',
-                        source: 'DongYen_Portal'
+                        source: 'DongYen_Portal_V2'
                     });
                 }
                 
                 document.getElementById('crmForm').style.display = 'none';
-                document.querySelector('.header').style.display = 'none';
                 document.getElementById('successMessage').style.display = 'block';
+                document.querySelectorAll('p').forEach(p => p.style.display = 'none');
             } catch (err) {
                 console.error(err);
                 alert('Có lỗi xảy ra, vui lòng thử lại sau.');
@@ -276,5 +162,7 @@
             }
         });
     </script>
+</body>
+</html>
 </body>
 </html>
