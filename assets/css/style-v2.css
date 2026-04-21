@@ -220,13 +220,17 @@ h1, h2, h3, .clan-branding {
 }
 
 /* ============ RESPONSIVE FIXES ============ */
+.section-padding {
+    padding: 8rem 0;
+}
+
 @media (max-width: 768px) {
-    .container {
-        padding: 0 1rem;
+    .section-padding {
+        padding: 5rem 0;
     }
     
-    section {
-        padding: 4rem 0;
+    .container {
+        padding: 0 1rem;
     }
 }
 /* Tree Map Preview Component */
