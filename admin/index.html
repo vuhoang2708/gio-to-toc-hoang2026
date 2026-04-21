@@ -159,9 +159,8 @@ Giờ: 08:00 Sáng - Bắt đầu hành lễ
     <div id="toast"></div>
 
     <script>
-        const GOOGLE_APP_URL = "https://script.google.com/macros/s/AKfycby3QJAZN7y_aB1NvmwB4bHsqpGYYfoHBCLXlP8fNtfqiEfz5QPxa1t6XyoLOGj8GzaU/exec";
+        const GOOGLE_APP_URL = "https://script.google.com/macros/s/AKfycbzEUT9KxrYnWcS_dWNl2KoQuUB4irMx-CTCAKKyzu8seqiQ9QpAxSDXrIe6ETsA8TEu/exec";
 
-        // Load saved content on startup
         window.onload = function() {
             const boxes = document.querySelectorAll('.edit-box');
             boxes.forEach(box => {
@@ -184,16 +183,16 @@ Giờ: 08:00 Sáng - Bắt đầu hành lễ
             const t = document.getElementById("toast");
             t.innerText = msg;
             t.className = "show";
-            setTimeout(() => { t.className = t.className.replace("show", ""); }, 3000);
+            setTimeout(() => { t.className = t.className.replace("show", ""); }, 5000);
         }
 
         async function submitToGoogleSheets() {
             const btn = document.getElementById('submit-btn');
             const editBoxes = document.querySelectorAll('.edit-box');
-            let hasChanges = false;
+            let batch = [];
             
             btn.disabled = true;
-            btn.innerText = "⌛ ĐANG GỬI DỮ LIỆU...";
+            btn.innerText = "⏳ ĐANG GỬI DỮ LIỆU...";
 
             try {
                 for (let box of editBoxes) {
@@ -202,32 +201,35 @@ Giờ: 08:00 Sáng - Bắt đầu hành lễ
 
                     const sectionId = box.id.replace('edit_', '');
                     const origContent = document.getElementById('orig_' + sectionId).innerText;
-
-                    const data = {
+                    
+                    batch.push({
                         section: sectionId.toUpperCase(),
                         old_content: origContent,
                         new_content: newContent
-                    };
-
-                    await fetch(GOOGLE_APP_URL, {
-                        method: 'POST',
-                        mode: 'no-cors', // Apps Script requires no-cors for simple Web Apps
-                        cache: 'no-cache',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data)
                     });
-                    hasChanges = true;
                 }
 
-                if (hasChanges) {
-                    showToast("✅ Đã gửi dữ liệu thành công lên Google Sheet!");
-                    updateStatus("Đã đồng bộ lên Cloud lúc " + new Date().toLocaleTimeString());
+                if (batch.length > 0) {
+                    await fetch(GOOGLE_APP_URL, {
+                        method: 'POST',
+                        mode: 'no-cors', 
+                        cache: 'no-cache',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ batch: batch })
+                    });
+                    
+                    showToast(`✅ Đã gửi ${batch.length} mục thành công! Check mail bác nhé.`);
+                    updateStatus("Đồng bộ thành công lúc " + new Date().toLocaleTimeString());
+                    
+                    editBoxes.forEach(box => box.innerText = "");
+                    // Clear individual items from localStorage
+                    editBoxes.forEach(box => localStorage.removeItem(box.id));
                 } else {
-                    showToast("⚠️ Bác chưa nhập nội dung mới nào để gửi.");
+                    showToast("⚠️ Bác chưa nhập nội dung mới.");
                 }
             } catch (error) {
                 console.error(error);
-                showToast("❌ Lỗi khi gửi dữ liệu. Các bác vui lòng liên hệ Hoàng Vũ.");
+                showToast("❌ Lỗi kỹ thuật. Bác nhắn Hoàng Vũ hỗ trợ ạ.");
             } finally {
                 btn.disabled = false;
                 btn.innerText = "🚀 GỬI BAN BIÊN TẬP (LƯU LÊN CLOUD)";
@@ -235,7 +237,7 @@ Giờ: 08:00 Sáng - Bắt đầu hành lễ
         }
 
         window.onbeforeunload = function() {
-            return "Bác có chắc chắn muốn rời khỏi trang không? Hãy đảm bảo đã bấm 'GỬI' để lưu dữ liệu.";
+            return "Bác có chắc chắn muốn rời khỏi trang không?";
         };
     </script>
 </body>
