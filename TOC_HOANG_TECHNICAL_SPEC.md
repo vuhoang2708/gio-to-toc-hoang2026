@@ -1,4 +1,5 @@
 # 🛠️ TÀI LIỆU MÔ TẢ KỸ THUẬT CHUYÊN SÂU (DEEP TECH SPEC)
+**GitHub Repository:** [https://github.com/vuhoang2708/toc-hoang-dong-yen-duy-xuyen](https://github.com/vuhoang2708/toc-hoang-dong-yen-duy-xuyen)
 ## 🏯 DỰ ÁN: CỔNG THÔNG TIN SỐ TỘC HOÀNG ĐÔNG YÊN (2026)
 
 ---

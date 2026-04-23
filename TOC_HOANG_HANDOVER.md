@@ -1,4 +1,5 @@
 # 📦 TÀI LIỆU HƯỚNG DẪN BAN BIÊN TẬP (EDITORIAL GUIDE)
+**GitHub Repository:** [https://github.com/vuhoang2708/toc-hoang-dong-yen-duy-xuyen](https://github.com/vuhoang2708/toc-hoang-dong-yen-duy-xuyen)
 **Dự án: Cổng thông tin Tộc Hoàng Đông Yên**
 
 👉 **Mục đích:** Hướng dẫn Ban Biên Tập quản lý nội dung, theo dõi đăng ký và sử dụng các công cụ truyền thống của dòng tộc.
